@@ -21,7 +21,7 @@ app.get(`/news/:query_term`, function (req, res) {
 		.get(url)
 		.then(response => {
 			console.log(response.data);
-			// res.send(response.data.articles[0].title);
+			res.send(response.data);
 			return response.data;
 		})
 		.catch(error => console.log(error));
