@@ -22,7 +22,7 @@ app.get(`/news/:query_term`, function (req, res) {
 		.then(response => {
 			console.log(response.data);
 			res.send(response.data.articles[0].title);
-			return response.data;
+			return response;
 		})
 		.catch(error => console.log(error));
 });
