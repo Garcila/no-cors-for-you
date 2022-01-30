@@ -12,6 +12,7 @@
 		"nodemon": "^2.0.15"
 	},
 	"scripts": {
+		"start": "node app.js",
 		"demon": "nodemon app.js"
 	},
 	"author": "German Arcila",
