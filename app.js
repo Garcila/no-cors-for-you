@@ -2,6 +2,13 @@ const axios = require("axios");
 const express = require("express");
 const app = express();
 require("dotenv").config();
+const cors = require("cors");
+
+app.use(
+	cors({
+		origin: "*",
+	})
+);
 
 const PORT = process.env.PORT || 3000;
 const API_KEY_NEWS = process.env.API_KEY_NEWS;
