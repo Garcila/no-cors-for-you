@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const API_KEY_NEWS = process.env.API_KEY_NEWS;
 
 app.get(`/news/:query_term`, function (req, res) {
