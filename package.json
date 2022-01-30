@@ -1,0 +1,19 @@
+{
+	"name": "no-cors-for-you",
+	"version": "1.0.0",
+	"description": "proxy to help students with their first project",
+	"main": "app.js",
+	"dependencies": {
+		"axios": "^0.25.0",
+		"dotenv": "^14.3.2",
+		"express": "^4.17.2"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	},
+	"scripts": {
+		"demon": "nodemon app.js"
+	},
+	"author": "German Arcila",
+	"license": "ISC"
+}
