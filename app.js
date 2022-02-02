@@ -25,4 +25,13 @@ app.get(`/news/:query_term`, function (req, res) {
 		.catch(error => console.log(error));
 });
 
+app.get(`/:url`, function (req, res) {
+	axios
+		.get(req.params.url)
+		.then(response => {
+			res.send(response.data);
+		})
+		.catch(error => console.log(error));
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
