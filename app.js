@@ -25,12 +25,10 @@ const API_KEY_NEWS = process.env.API_KEY_NEWS;
 // 		.catch(error => console.log(error));
 // });
 
-app.get(`/`, function (req, res) {
+app.get(`/:path`, function (req, res) {
 	console.log("the url is ", req.params.url);
 	axios
-		.get(
-			"https://newsapi.org/v2/everything?q=shark&apiKey=33f90c31aec04b5e8d07242e1af4f3e3"
-		)
+		.get(req.params.path)
 		.then(response => {
 			res.send(response.data);
 		})
