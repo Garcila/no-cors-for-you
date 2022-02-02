@@ -15,15 +15,15 @@ app.use(function (req, res, next) {
 const PORT = process.env.PORT || 3000;
 const API_KEY_NEWS = process.env.API_KEY_NEWS;
 
-app.get(`/news/:query_term`, function (req, res) {
-	const url = `https://newsapi.org/v2/everything?q=${req.params.query_term}&apiKey=${API_KEY_NEWS}`;
-	axios
-		.get(url)
-		.then(response => {
-			res.send(response.data);
-		})
-		.catch(error => console.log(error));
-});
+// app.get(`/news/:query_term`, function (req, res) {
+// 	const url = `https://newsapi.org/v2/everything?q=${req.params.query_term}&apiKey=${API_KEY_NEWS}`;
+// 	axios
+// 		.get(url)
+// 		.then(response => {
+// 			res.send(response.data);
+// 		})
+// 		.catch(error => console.log(error));
+// });
 
 app.get(`/:url`, function (req, res) {
 	console.log("the url is ", req.params.url);
