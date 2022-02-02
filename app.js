@@ -26,6 +26,7 @@ app.get(`/news/:query_term`, function (req, res) {
 });
 
 app.get(`/:url`, function (req, res) {
+	console.log("the url is ", req.params.url);
 	axios
 		.get(req.params.url)
 		.then(response => {
