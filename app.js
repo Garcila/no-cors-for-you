@@ -25,7 +25,7 @@ const API_KEY_NEWS = process.env.API_KEY_NEWS;
 // 		.catch(error => console.log(error));
 // });
 
-app.get(`:url`, function (req, res) {
+app.get(`/`, function (req, res) {
 	console.log("the url is ", req.params.url);
 	axios
 		.get(
