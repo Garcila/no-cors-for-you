@@ -25,10 +25,35 @@ const API_KEY_NEWS = process.env.API_KEY_NEWS;
 // 		.catch(error => console.log(error));
 // });
 
-app.get(`/:path`, function (req, res) {
-	console.log("the url is ", req.params.url);
+app.get("/:a?/:b?/:c?/:d?/:e?/:f?/:g?/:h?", function (req, res) {
+	console.log(
+		"=================================================================="
+	);
+
+	let fullURL = "";
+	const url = req.params;
+
+	for (let a in url) {
+		if (url[a]) {
+			fullURL += `${url[a]}/`;
+		}
+	}
+	// remove last /
+	fullURL = fullURL.slice(0, -1);
+
+	const queryElements = req.query;
+
+	// Add ? to start the query parameters
+	fullURL += "?";
+	for (let item in queryElements) {
+		fullURL = `${fullURL}${item}=${queryElements[item]}&`;
+	}
+
+	// remove the last &
+	fullURL = fullURL.slice(0, -1);
+
 	axios
-		.get(req.params.path)
+		.get(`https://${fullURL}`)
 		.then(response => {
 			res.send(response.data);
 		})
