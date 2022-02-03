@@ -25,6 +25,8 @@ const API_KEY_NEWS = process.env.API_KEY_NEWS;
 // 		.catch(error => console.log(error));
 // });
 
+app.get("/favicon.ico", (req, res) => res.status(204));
+
 app.get("/:a?/:b?/:c?/:d?/:e?/:f?/:g?/:h?", function (req, res) {
 	console.log(
 		"=================================================================="
@@ -51,6 +53,7 @@ app.get("/:a?/:b?/:c?/:d?/:e?/:f?/:g?/:h?", function (req, res) {
 
 	// remove the last &
 	fullURL = fullURL.slice(0, -1);
+	console.log(fullURL);
 
 	axios
 		.get(`https://${fullURL}`)
