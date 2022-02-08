@@ -28,7 +28,6 @@ const API_KEY_NEWS = process.env.API_KEY_NEWS;
 // 		.catch(error => console.log(error));
 // });
 
-// 204 (no content) if it is trying to get favicon.ico
 app.get("/", (req, res) =>
 	res.send(
 		`<div style="color: rgb(255,255,255);background-color: rgb(77,77,77);height: 100vh; display: flex; flex-direction: column; justify-content: center; text-align: center">
@@ -41,34 +40,13 @@ app.get("/", (req, res) =>
 );
 
 app.use(favicon(__dirname + "/public/images/io.ico"));
-// app.get("/favicon.ico", (req, res) => res.status(204));
 
-app.get("/:a?/:b?/:c?/:d?/:e?/:f?/:g?/:h?", function (req, res) {
-	let fullURL = "";
-	const url = req.params;
-
-	for (let a in url) {
-		if (url[a]) {
-			fullURL += `${url[a]}/`;
-		}
-	}
-	// remove last /
-	fullURL = fullURL.slice(0, -1);
-
-	const queryElements = req.query;
-
-	// Add ? to start the query parameters
-	fullURL += "?";
-	for (let item in queryElements) {
-		fullURL = `${fullURL}${item}=${queryElements[item]}&`;
-	}
-
-	// remove the last &
-	fullURL = fullURL.slice(0, -1);
-	console.log(fullURL);
+// TODO: not happy with the catch all parameter.  Look for a better way
+app.get("/*", function (req, res) {
+	const url = `https:/${req.url}`;
 
 	axios
-		.get(`https://${fullURL}`)
+		.get(url)
 		.then(response => {
 			res.send(response.data);
 		})
