@@ -15,8 +15,9 @@ app.use(function (req, res, next) {
 });
 
 const PORT = process.env.PORT || 3000;
-const API_KEY_NEWS = process.env.API_KEY_NEWS;
 
+// TODO: This code is have a url as a reference and also create a custom route that protects the API_KEY
+// const API_KEY_NEWS = process.env.API_KEY_NEWS;
 //https://newsapi.org/v2/everything?q=shark&apiKey=33f90c31aec04b5e8d07242e1af4f3e3
 // app.get(`/news/:query_term`, function (req, res) {
 // 	const url = `https://newsapi.org/v2/everything?q=${req.params.query_term}&apiKey=${API_KEY_NEWS}`;
